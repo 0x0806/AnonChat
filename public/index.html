@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Chat - Talk to Strangers Worldwide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-comments"></i>
+                <span>AnonChat</span>
+            </div>
+            <div class="user-count">
+                <i class="fas fa-users"></i>
+                <span id="userCount">0</span> online
+            </div>
+        </header>
+
+        <!-- Landing Page -->
+        <div id="landingPage" class="landing-page">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Talk to Strangers Anonymously</h1>
+                    <p>Connect with people from around the globe instantly. Start conversations, make friends, and explore different cultures - all while staying completely anonymous.</p>
+                    
+                    <div class="enhanced-features">
+                        <div class="enhanced-feature">
+                            <i class="fas fa-globe-americas"></i>
+                            <h3>Global Network</h3>
+                            <p>Connect with people from over 190 countries instantly</p>
+                        </div>
+                        <div class="enhanced-feature">
+                            <i class="fas fa-clock"></i>
+                            <h3>Instant Connection</h3>
+                            <p>Lightning fast text chat connections worldwide</p>
+                        </div>
+                        <div class="enhanced-feature">
+                            <i class="fas fa-user-secret"></i>
+                            <h3>Complete Privacy</h3>
+                            <p>No registration, no data collection, 100% anonymous</p>
+                        </div>
+                        <div class="enhanced-feature">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Smart Matching</h3>
+                            <p>Advanced algorithm finds compatible conversation partners</p>
+                        </div>
+                        <div class="enhanced-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Secure Connection</h3>
+                            <p>End-to-end encrypted conversations with P2P technology</p>
+                        </div>
+                        <div class="enhanced-feature">
+                            <i class="fas fa-sync-alt"></i>
+                            <h3>Auto-Retry</h3>
+                            <p>Intelligent retry system ensures you always find someone</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-type-info">
+                        <div class="chat-type-selected">
+                            <i class="fas fa-comments"></i>
+                            Text Chat Only
+                        </div>
+                    </div>
+                    
+                    <button id="startChatBtn" class="start-btn">
+                        <i class="fas fa-play"></i>
+                        Start Chatting Now
+                    </button>
+                    
+                    <div class="disclaimer">
+                        <p><i class="fas fa-info-circle"></i> By using this service, you agree to be respectful and follow community guidelines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div id="chatInterface" class="chat-interface hidden">
+            <div class="chat-header">
+                <div class="chat-status">
+                    <div id="statusIndicator" class="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        <span id="statusText">Connecting...</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button id="retryBtn" class="action-btn hidden">
+                        <i class="fas fa-sync"></i>
+                        Retry
+                    </button>
+                    <button id="newChatBtn" class="action-btn">
+                        <i class="fas fa-redo"></i>
+                        New Chat
+                    </button>
+                    <button id="endChatBtn" class="action-btn danger">
+                        <i class="fas fa-times"></i>
+                        End Chat
+                    </button>
+                </div>
+            </div>
+
+            
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="welcome-message">
+                    <p>You're now chatting with a random stranger. Say hello!</p>
+                </div>
+            </div>
+
+            <div class="typing-indicator hidden" id="typingIndicator">
+                <span>Stranger is typing</span>
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div id="retryStatus" class="retry-status hidden">
+                <p>Connection failed. <span id="retryCount"></span></p>
+                <div class="retry-progress">
+                    <div class="retry-progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500">
+                <button id="sendBtn" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
