@@ -1,4 +1,3 @@
-
 # AnonChat
 
 **Created by 0x0806**
